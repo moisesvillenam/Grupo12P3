@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco FinTech - Solicitud de Préstamo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Bienvenido al Mejor Banco del País</h1>
+    <p>Tu mejor opción para solicitar un préstamo</p>
+  </div>
+
+  <div class="container">
+    <h2>Solicitud de Préstamo</h2>
+
+    <!-- Datos personales -->
+    <label for="nombre">Nombre Completo:</label>
+    <input type="text" id="nombre" placeholder="Ingrese su nombre completo">
+
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" placeholder="Ingrese su correo electrónico">
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" placeholder="Ingrese su número de teléfono">
+
+    <!-- Detalles del préstamo -->
+    <label for="monto">Monto del Préstamo:</label>
+    <input type="number" id="monto" placeholder="Ingrese monto">
+
+    <label for="tasa">Tasa de Interés Anual (%):</label>
+    <input type="number" id="tasa" placeholder="Ingrese tasa de interés">
+
+    <label for="periodos">Número de Periodos:</label>
+    <input type="number" id="periodos" placeholder="Ingrese periodos">
+
+    <!-- Moneda -->
+    <label for="moneda">Selecciona la moneda:</label>
+    <select id="moneda">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="MXN">MXN</option>
+    </select>
+
+    <button onclick="calcularAmortizacion()">Generar Tabla</button>
+
+    <h2>Resultados</h2>
+    <table id="resultados">
+      <thead>
+        <tr>
+          <th>Periodo</th>
+          <th>Cuota</th>
+          <th>Intereses</th>
+          <th>Amortización</th>
+          <th>Saldo Remanente</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Cancelar deuda -->
+    <h3>Cancelar toda la deuda</h3>
+    <label for="seleccionarPeriodo">Seleccione el período:</label>
+    <select id="seleccionarPeriodo">
+      <option value="" disabled selected>Primero genera la tabla</option>
+    </select>
+    <button onclick="cancelarDeuda()">Calcular Cancelación</button>
+
+    <h3>Resultado del Pago:</h3>
+    <p id="pago-cancelacion">Seleccione un período para mostrar el total a pagar.</p>
+
+    <h3>Gráfico de Saldo Remanente</h3>
+    <canvas id="grafico" width="400" height="200"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
